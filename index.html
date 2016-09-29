@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet"  type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>CloudHand</title>
+        <style type="text/css">
+
+        </style>
+        
+        <script type="text/javascript" src="jquery.js">
+        </script>
+        <script type="text/javascript">
+            var linkAr = ["google", "apple", "bmw", "yahoo", "canon", "nikon"];
+            var index = 0;
+            var photoNum = 6;
+            var setInt = setInterval(changePhotoHandler, 2000);//
+            $(document).ready(init);
+            function init()
+            {
+                for (var i = 1; i <= photoNum; i++) {
+                    $(".outer").append("<img src='image/home0" + i + ".jpg'>");
+                    $(".dots").append("<img src='images/light.png' class='dot'>");
+                }
+                $(".outer img:gt(0)").animate({"opacity": 0}, 0);
+                $(".outer img").click(linkHandler);
+                $(".dots").width(photoNum * 20);
+                $(".dots .dot:first").attr("src", "images/dark.png");
+                $(".dot").click(changePhotoHandler);
+            }
+            function changePhotoHandler(e) {
+                // console.log($(this).index());
+
+                if ($(this).index() != -1) {
+                //for not click on dot $(this).index()=-1 (interval setting)
+                    index = $(this).index();
+                    clearInterval(setInt); // remove 碼表
+                    setInt = setInterval(changePhotoHandler, 2000); //restart for full 2s
+                } else {
+                    index++;
+                }
+                index %= photoNum; // index 1,2,3,4.... %mod for repeat!!!!
+                // console.log(index);
+                $(".dots .dot").attr("src", "images/light.png");
+                $(".dots .dot:eq(" + index + ")").attr("src", "images/dark.png"); // 隔開字串和本來的變數,因為javascript會自己轉換為字串
+                $(".outer img").not(".outer img:eq(" + index + ")").animate({"opacity": 0}, 500); 
+                //opacity for all of images except for current point
+                $(".outer img:eq(" + index + ")").animate({"opacity": 1}, 500);
+            }
+            function linkHandler() {
+                window.location.href = "http://www." + linkAr[index] + ".com";
+            }
+        </script>        
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-inverse navbar-full" id="main-nav">
+            <img id="logo" src="CloudHand.png">
+            <a class="navbar-brand" >Cloud<span >Hand</span></a>
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#cover">Home</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#timeline">Timeline</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section-cards">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact us</a>
+                </li> 
+                
+                <li class="nav-item" >
+                    <a class="nav-link" id="register" href="register.jsp">Register</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" id="login" href="login.jsp">Login</a>
+                </li> 
+            </ul>
+
+            <form class="form-inline pull-xs-right">
+                <input class="form-control" type="text" placeholder="Search">
+                <button class="btn btn-success-outline" type="submit">Search</button>
+            </form> 
+        </nav>
+        
+        <div class="outer">
+        </div>
+        <div class="dots"></div>
+      
+        
+        <section id="product">
+             <div class="section-product">
+                 <div class="container">
+                    <h2>Our <span class="bold-green">Services</span></h2>
+                     <div class="row">
+                         <div class="col-sm-4">
+                             <p>Business</p>
+                             <img src="Service/business.jpg">
+                         </div>
+                         <div class="col-sm-4">
+                             <p>design</p>
+                             <img src="Service/design.jpg">
+                         </div>
+                         <div class="col-sm-4">
+                             <p>programming</p>
+                             <img src="Service/programming.jpg">
+                         </div>                     
+                     </div>
+                     <br>
+                     <div class="row">
+                         <div class="col-sm-4">
+                             <p>translation</p>
+                             <img src="Service/translation.jpg">
+                         </div>
+                         <div class="col-sm-4">
+                             <p>video</p>
+                             <a href="www.yahoo.com.com">
+                                 <img src="Service/video.jpg"> 
+                             </a>
+                         </div>
+                         <div class="col-sm-4">
+                             <p>writer</p>
+                             <img src="Service/writer.jpg">
+                         </div>                     
+                     </div>                   
+                 </div>
+             </div>
+         </section>
+        
+        <section id="features">
+            <div class="section-features">
+                <div class="container">
+                    <h2 id="title">What <span class="bold-green">we</span> do?</h2>
+                    <p class="lead under-heading js-wp-1">Take a look of what we do as a company</p>
+                
+                    <div class="row">
+                        <div class="col-sm-3 square js-wp-2">
+                            <i class="fa fa-tree fa-5x"></i>
+                            <hr class="green-hr">
+                            <p>We actually planted this damn tree a long time ago and didn't do anything since</p>
+                        </div>
+                        <div class="col-sm-3 square js-wp-4">
+                            <i class="fa fa-leaf fa-5x"></i>
+                            <hr class="green-hr">
+                            <p>This is another icon to make you believe ` that we're actually doing something</p>
+                        </div>
+                        <div class="col-sm-3 square js-wp-4">
+                             <i class="fa fa-pagelines fa-5x"></i>
+                             <hr class="green-hr">
+                             <p>Yet another useless icon to represent the useless company we are</p>
+                        </div>
+                        <div class="col-sm-3 square js-wp-3">
+                            <i class="fa fa-recycle fa-5x"></i>
+                            <hr class="green-hr">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dicta dignissimos!</p>
+                        </div>
+                    </div><!-- ROW -->
+                </div><!-- CONTAINER -->
+            </div><!-- SECTION-FEATURES -->
+        </section> <!-- SECTION -->        
+        
+    </body>
+</html>

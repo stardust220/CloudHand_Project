@@ -1,0 +1,82 @@
+/* NAVBAR */
+#logo{
+    float:left;
+    padding-right:20px;
+}
+.navbar-brand {
+    font-family: 'Cubano-Regular';
+    padding-right: 15px;
+}
+
+#exCollapsingNavbar2 {
+    font-family: 'Nunito-Regular';
+}
+
+.nav-item a {
+    border-bottom: 1px solid transparent;
+    transition: 0.5s;
+}
+
+.nav-item a:hover {
+    border-bottom: 1px solid green;
+    transition: 0.5s;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+#register {
+    color:#e67e22;
+    padding-left:255px
+}
+
+#login {
+    color:#e67e22;
+
+}
+
+#register,#login:hover{
+    border-bottom:none;
+}
+
+
+/* Slide-Show */
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.outer{
+    width:1000px;
+    height:400px;
+    margin:auto;
+    padding:15px;
+}
+.outer img{
+    width:900px;
+    height:400px;
+    display:block;
+    position:absolute;
+    cursor:pointer;
+}   
+.dots{
+    width:120px;
+    height:20px;
+    margin:auto;
+    cursor:pointer;
+    position:absolute;
+    padding-left:500px;
+    padding-top:15px;
+}
+
+#product {
+    padding-top:65px;
+}
+
+/*about us */
+
+#title{
+    margin-top:50px;
+}
