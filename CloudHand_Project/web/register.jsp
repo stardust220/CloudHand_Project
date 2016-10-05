@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
-<%@page import="vgb.domain.BloodType"%>
-<%@page import="vgb.domain.Customer"%>
+<%@page import="cloudhand.domain.BloodType"%>
+<%@page import="cloudhand.domain.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" info="會員註冊"%>
 <!DOCTYPE html>
 <!--
@@ -8,6 +8,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<jsp:include page="META-INF/subviews/header.jsp">
+    <jsp:param name="banner_subtitle" value="login" />
+</jsp:include>
 <html>
     <head>
         <title>會員註冊</title>
@@ -112,3 +115,5 @@ and open the template in the editor.
         </form>
     </body>
 </html>
+<%@include  file="META-INF/subviews/footer.jsp" %>
+

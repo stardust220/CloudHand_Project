@@ -1,4 +1,17 @@
+<%-- 
+    Document   : index
+    Created on : 2016/10/4, 下午 06:14:30
+    Author     : chenqingqi
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<jsp:include page="META-INF/subviews/header.jsp">
+    <jsp:param name="banner_subtitle" value="login" />
+</jsp:include>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -7,11 +20,13 @@
         <link rel="stylesheet"  type="text/css" href="css/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
-        <title>CloudHand</title>
-        <style type="text/css">
-
-        </style>
-        
+        <script src="<%= request.getContextPath() %>/js/jquery.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>                      
+    </head>
+    <%        
+    %>
+ 
         <script type="text/javascript" src="jquery.js">
         </script>
         <script type="text/javascript">
@@ -56,41 +71,6 @@
                 window.location.href = "http://www." + linkAr[index] + ".com";
             }
         </script>        
-    </head>
-    <body>
-        <nav class="navbar navbar-dark bg-inverse navbar-full" id="main-nav">
-            <img id="logo" src="CloudHand.png">
-            <a class="navbar-brand" >Cloud<span >Hand</span></a>
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#cover">Home</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#timeline">Timeline</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#section-cards">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact us</a>
-                </li> 
-                
-                <li class="nav-item" >
-                    <a class="nav-link" id="register" href="register.jsp">Register</a>
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" id="login" href="login.jsp">Login</a>
-                </li> 
-            </ul>
-
-            <form class="form-inline pull-xs-right">
-                <input class="form-control" type="text" placeholder="Search">
-                <button class="btn btn-success-outline" type="submit">Search</button>
-            </form> 
-        </nav>
         
         
         <sectiton id="slide-show">
@@ -107,44 +87,54 @@
                      <div class="row">
                          <div class="col-sm-4">
                              <p>Business</p>
-                             <figure class="meal-photo">
-                                 <img src="Service/business.jpg">
-                             </figure>
+                             <a href='<%= request.getContextPath() %>/product.jsp'>
+                                <figure class="meal-photo">
+                                    <img src="Service/business.jpg">
+                                </figure>
+                             </a>
                          </div>
                          <div class="col-sm-4">
                              <p>design</p>
-                             <figure class="meal-photo">
-                                 <img src="Service/design.jpg">
-                             </figure>
+                             <a href='<%= request.getContextPath() %>/product.jsp'>
+                                <figure class="meal-photo">
+                                    <img src="Service/design.jpg">
+                                </figure>
+                             </a>
                          </div>
                          <div class="col-sm-4">
                              <p>programming</p>
-                             <figure class="meal-photo">
-                                <img src="Service/programming.jpg">
-                             </figure>
+                             <a href='<%= request.getContextPath() %>/product.jsp'>
+                                <figure class="meal-photo">
+                                   <img src="Service/programming.jpg">
+                                </figure>
+                             </a>
                          </div>                     
                      </div>
                      <br>
                      <div class="row">
                          <div class="col-sm-4">
                              <p>translation</p>
-                             <figure class="meal-photo">
-                                <img src="Service/translation.jpg">
-                             </figure>
+                             <a href='<%= request.getContextPath() %>/product.jsp'>
+                                <figure class="meal-photo">
+                                   <img src="Service/translation.jpg">
+                                </figure>
+                             </a>
                          </div>
                          <div class="col-sm-4">
                              <p>video</p>
-                             <a href="www.yahoo.com.com">
-                             <figure class="meal-photo">
-                                 <img src="Service/video.jpg"> 
-                             </figure>
+                             <a href='<%= request.getContextPath() %>/product.jsp'>
+                                <figure class="meal-photo">
+                                    <img src="Service/video.jpg"> 
+                                </figure>
                              </a>
                          </div>
                          <div class="col-sm-4">
                              <p>writer</p>
-                             <figure class="meal-photo">
-                             <img src="Service/writer.jpg">
-                             </figure>
+                             <a href='<%= request.getContextPath() %>/product.jsp'>
+                                <figure class="meal-photo">
+                                <img src="Service/writer.jpg">
+                                </figure>
+                             </a>
                          </div>                     
                      </div>                   
                  </div>
@@ -247,27 +237,8 @@
                 </div>
             </div>
         </section>
-        
-        
-       <footer class="footer">
-             <div class="container">
-                 <div class="row">
-                     <div class="col-sm-4">
-                         <p>Copyright &copy;CloudHand</p>
-                     </div>
-                     <div class="col-sm-4">
-                         <ul class="social-links">
-                            <li><a href="#"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
-                         </ul>
-                     </div>
-                     <div class="col-sm-4 scroll-to-top-button">
-                         <a href="#cover"><i id="arrow-up" class="fa fa-3x fa-chevron-circle-up"></i></a>
-                     </div>
-                 </div>
-             </div>
-         </footer>
+       
     </body>
 </html>
+                                
+<%@include  file="META-INF/subviews/footer.jsp" %>
